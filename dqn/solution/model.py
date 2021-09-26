@@ -23,6 +23,6 @@ class QNetwork(nn.Module):
 
     def forward(self, state):
         """Build a network that maps state -> action values."""
-        x = F.relu(self.fc1(state))
+        xx = F.relu(self.fc1(state))
         x = F.relu(self.fc2(x))
         return self.fc3(x)

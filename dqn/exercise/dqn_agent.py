@@ -85,9 +85,18 @@ class Agent():
         """
         states, actions, rewards, next_states, dones = experiences
 
-        ## TODO: compute and minimize the loss
-        "*** YOUR CODE HERE ***"
+        ## compute and minimize the loss
 
+        ## current reward
+        qtarget= rewards + \
+                        (gamma * self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)* (1-dones))
+        
+        qexpected=self.qnetwork_local(states).gather(1, actions)
+        
+        loss= F.mse_loss(qexpected, qtarget)
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
         # ------------------- update target network ------------------- #
         self.soft_update(self.qnetwork_local, self.qnetwork_target, TAU)                     
 
