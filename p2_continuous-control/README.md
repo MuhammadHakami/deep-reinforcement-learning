@@ -86,3 +86,19 @@ Then, place the file in the `p2_continuous-control/` folder in the DRLND GitHub 
 
 (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
 
+### Requirements Installation
+To run the repo you need to install packages and download the Unity enviroment related to your operating system. we will start by create private python enviroment using Anaconda(other alternatives would also work. e.g. venv)
+1. Make a private enviroment in python 3.7:
+   * ```bash
+     conda create -n dagster python=3.7
+     ```
+2. Install required libraries:
+    * ```bash
+      pip install -r requirements.txt
+      ```
+
+### Enviroment
+The Enviroment i solved was the unity continues double joint arm enviroment mentioned above.  
+the eviroment consist of 4 joint continuous  actions and a blue circle to follow that moves with changing velocity over every episode reset.  
+
+if the agent can get reward of 30 or above consistenly over 100 consecutive episodes we clear out the enviroment. 
