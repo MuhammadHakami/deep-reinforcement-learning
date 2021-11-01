@@ -60,3 +60,20 @@ You need only select the environment that matches your operating system:
 Then, place the file in the `p3_collab-compet/` folder in the DRLND GitHub repository, and unzip (or decompress) the file.  Next, open `Soccer.ipynb` and follow the instructions to learn how to use the Python API to control the agent.
 
 (_For AWS_) If you'd like to train the agents on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agents without enabling a virtual screen, but you will be able to train the agents.  (_To watch the agents, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
+
+
+### Requirements Installation
+To run the repo you need to install packages and download the Unity enviroment related to your operating system. we will start by create private python enviroment using Anaconda(other alternatives would also work. e.g. venv)
+1. Make a private enviroment in python 3.7:
+   * ```bash
+     conda create -n dagster python=3.7
+     ```
+2. Install required libraries:
+    * ```bash
+      pip install -r requirements.txt
+      ```
+
+### Environment
+The Environment i solved was the unity tennis Environment. Where we have two agents competing collaborating for to keep bouncing the ball. when the agent throws the ball outside the play area or leave the ball to hit the ground it receives -.1 reward. if the ball passes over the net. the agent receives +0.1 reward.
+
+if the agent can get reward of 0.5+ or above consistently over 100 consecutive episodes we clear out the environment.
